@@ -1,0 +1,53 @@
+doctype html
+
+html
+	head
+		meta(charset = "utf-8")
+		title K-16
+
+		link(href = "/main.css",                                      rel = "stylesheet", type = "text/css")
+		link(href = "/libs/lg/css/lightgallery.css",                  rel = "stylesheet", type = "text/css")
+		link(href = "/libs/ls/css/lightslider.css",                   rel = "stylesheet", type = "text/css")
+		link(href = "/libs/font-awesome/css/fontawesome-all.min.css", rel = "stylesheet", type = "text/css")
+
+	body
+		script var parts = [];
+
+		nav
+			a(href = "/#!/main/")
+				img.logo(src = "/img/logo.svg")
+
+			ul
+				li
+					a(href = "/#!/main/") Главная
+				li
+					a(href = "/#!/news/") Новости
+				li
+					a(href = "/#!/photos/year/all/") Фотографии
+
+		#root
+			#container
+				main
+
+
+		//- SCRIPTS
+
+		//- VK
+		script(type = "text/javascript", src = "https://vk.com/js/api/openapi.js?154")
+
+		//- JQuery
+		script(src = "/libs/jquery.js")
+
+		//- lightSlider
+		script(src = "/libs/ls/js/lightslider.js")
+
+		//- lightGallery
+		script(src = "/libs/lg/js/lightgallery.js")
+		script(src = "/libs/lg/thumbnail.js")
+
+		//- mithril.js
+		script(src = "/libs/mithril.js")
+
+		//- run
+		script(src = "/app.js")
+		script require("main.coffee")

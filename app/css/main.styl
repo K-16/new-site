@@ -1,0 +1,170 @@
+// GLOBAL //
+
+html, body
+	font-family PT Sans, Open Sans, Arial, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif
+	font-size 1.15em
+	height 100%
+	margin 0
+	padding 0
+
+body
+	display flex
+	flex-direction column
+
+#root
+	flex-grow 1
+	margin 2.5em
+
+#container
+	height 100%
+
+main
+	height 100%
+
+.preloader
+	display flex
+	width 100%
+	flex-direction column
+	align-items center
+	justify-content center
+	margin-top 10.47em
+	margin-bottom 10.47em
+
+// NAV //
+
+nav
+	display flex
+	flex-direction row
+	align-items center
+	position fixed
+	top 0
+	z-index 9
+	width 100%
+	padding-left 0.5em
+	padding-right 0.5em
+	background white
+	box-shadow 0 0 0.15em rgba(0, 0, 0, 0.2)
+
+nav ul
+	display flex
+	width 100%
+	list-style none
+	justify-content center
+
+nav ul > li:not(:last-child):after
+		margin-left 0.5em
+		content "|"
+		color rgba(0,0,0, 0.13)
+
+nav li
+	display inline-block
+	margin-right 0.5em
+	
+nav a
+	color #214560
+	transition color 0.3s ease-in-out
+	&:hover
+		color #214560aa
+
+
+nav .logo
+	width 10em
+	height 3.31em
+
+// MAIN //
+
+.why-k16
+	width 20%
+	float right
+	margin 0.4%
+
+.lSSlideOuter .lSPager.lSpg > li a
+	background-color #214560 !important
+
+.lSSlideOuter .lSPager.lSpg > li:hover a
+	background-color #ee2125 !important
+
+.lSSlideOuter .lSPager.lSpg > li.active a
+	background-color #ee2125 !important
+	
+// PHOTOS //
+
+.albums
+	list-style none
+	display block
+
+.album
+	display inline-block
+	text-align center
+	margin 10px
+
+.thumb
+	display inline-flex
+	flex-direction column
+	align-items center
+	justify-content center
+	width 100px
+	height 100px
+	overflow hidden
+	border-radius 100%
+
+.thumb-container
+	display block
+	width 100px
+	height 100px
+	transition transform 0.3s ease-in-out
+	&:hover
+		transform scale(1.2)
+
+.thumb-image
+	display block
+	min-width 100px
+	min-height 100px
+	width auto
+	height auto
+
+.photos-viewer
+	display none
+
+.lg-outer .lg-thumb-item.active, .lg-outer .lg-thumb-item:hover
+	border-color #214560 !important
+
+.sort-method-container, .sort-link-container
+	display inline-block
+	border 1px solid #214560
+	border-radius 3px
+	overflow hidden
+	
+.sort-method, .sort-link
+	transition background 0.1s ease-in-out, color 0.1s ease-in-out
+	display inline-block
+	padding 5px
+	color black
+	text-decoration none
+
+.sort-method.checked, .sort-link.checked
+	background #214560
+	color white
+
+// NEWS //
+
+.news
+	margin 0
+	padding 0
+	width 100%
+	height 100%
+	display flex
+	flex-flow column
+
+.news-title
+	flex 0 1 auto
+
+.news-container
+	flex 0 1 auto
+	margin 0
+	padding 0
+	width 100%
+	height 100%
+	display flex
+	align-items center
+	justify-content center
