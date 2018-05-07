@@ -14,3 +14,10 @@ for name, part of parts
 console.log "Router:", router
 
 m.route root, "/main/", router
+
+window.onload = =>
+	preloader = document.getElementById("preloader")
+	preloader.classList.add("loaded")	
+	setTimeout ->
+		preloader.classList.add("hidden")	
+	, 400

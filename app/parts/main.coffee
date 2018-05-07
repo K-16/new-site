@@ -21,16 +21,17 @@ module.exports = do ->
 		oninit: SliderModel.oninit
 
 		bind: (vnode) ->
-			$(vnode.dom).lightSlider {
-				autoWidth: true
-				loop: true
+			$(vnode.dom).slick {
+				infinite: true
+				speed: 300
+				slidesToShow: 1
+				adaptiveHeight: true
 			}
 
 		view: ->
 			if @loaded
-				m "ul", { oncreate: (vnode) => Slider.bind.call @, vnode }, @photos.map (photo) ->
-					m "li", { "data-thumb": photo.src_small, "data-src": photo.src_big },
-						m "img", { src: photo.src_big }
+				m "ul.slick-ul-list", { oncreate: (vnode) => Slider.bind.call @, vnode }, @photos.map (photo) ->
+					m "img", { src: photo.src_big }
 			else
 				m "div.preloader",
 					m "img[src=/img/preloader.svg]"
