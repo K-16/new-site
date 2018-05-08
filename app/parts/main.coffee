@@ -17,6 +17,10 @@ module.exports = do ->
 					photo.src = photo.photo_807 or photo.photo_604 or photo.photo_130 or photo.photo_75
 					return photo
 
+				setTimeout -> 
+					m.redraw()
+				, 500
+
 
 	Slider =
 		oninit: SliderModel.oninit
