@@ -5,6 +5,7 @@ parts = {
 }
 
 root = document.getElementsByTagName("main")[0]
+nav  = document.getElementsByTagName("nav")[0]
 
 router = {}
 for name, part of parts
@@ -15,9 +16,12 @@ console.log "Router:", router
 
 m.route root, "/main/", router
 
-window.onload = =>
-	preloader = document.getElementById("preloader")
-	preloader.classList.add("loaded")	
-	setTimeout ->
-		preloader.classList.add("hidden")	
-	, 400
+window.onscroll = =>
+	if window.scrollY > 0
+		unless nav.classList.contains "shadowed"
+			nav.classList.add "shadowed"
+	else
+		if nav.classList.contains "shadowed"
+			nav.classList.remove "shadowed"
+
+

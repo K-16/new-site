@@ -17,15 +17,13 @@ module.exports = do ->
 					photo.src = photo.photo_807 or photo.photo_604 or photo.photo_130 or photo.photo_75
 					return photo
 
-				setTimeout -> 
-					m.redraw()
-				, 500
-
-
 	Slider =
 		oninit: SliderModel.oninit
 
 		bind: (vnode) ->
+			for photo in @photos
+				vnode.dom.innerHTML += "<img src=#{photo.src}>"
+
 			$(vnode.dom).slick {
 				infinite: true
 				speed: 300
@@ -33,13 +31,13 @@ module.exports = do ->
 				autoplaySpeed: 3000
 				slidesToShow: 1
 				adaptiveHeight: true
+				pauseOnHover: true
 			}
 
 		view: ->
 			if @photos.length > 0
 				m "div.slick-ul-list-container",
-					m "ul.slick-ul-list", { oncreate: (vnode) => Slider.bind.call @, vnode }, @photos.map (photo) ->
-						m "img", { src: photo.src }
+					m "ul.slick-ul-list", { oncreate: (vnode) => Slider.bind.call @, vnode }
 			else
 				m "div.preloader",
 					m "img[src=/img/preloader.svg]"
