@@ -1,16 +1,19 @@
-parts = {
-	"main":   require './parts/main'
-	"news":   require './parts/news'
-	"photos": require './parts/photos'
-}
+parts = [
+	require './parts/main'
+	require './parts/news'
+	require './parts/photos'
+]
 
-root = document.getElementsByTagName("main")[0]
-nav  = document.getElementsByTagName("nav")[0]
+root    = document.getElementsByTagName("main")[0]
+nav     = document.getElementsByTagName("nav")[0]
+navList = nav.children[1]
 
 router = {}
 for name, part of parts
-	for route, resolver of part
-		router["/" + name + route] = resolver
+	navList.innerHTML += "<li><a href='/#!/#{part.path}#{part.default}'>#{part.title}</a></li>"
+
+	for route, resolver of part.routes
+		router["/" + part.path + route] = resolver
 
 console.log "Router:", router
 

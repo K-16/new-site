@@ -11,7 +11,7 @@ module.exports = do ->
 		view: ->
 			cont = m "div.news-container",
 				m "div.news", id: @id, oncreate: =>
-					VK.Widgets.Group(@id, {mode: 4, wide: 1, width: cont.dom.offsetWidth - 30, height: cont.dom.offsetHeight - 30}, 1088622)
+					VK.Widgets.Group(@id, {mode: 4, wide: 1, width: cont.dom.offsetWidth, height: cont.dom.offsetHeight }, 1088622)
 
 			m "div.news", [
 				m "h1.news-title", "Новости"
@@ -19,5 +19,10 @@ module.exports = do ->
 			]
 
 	return {
-		"/": News
+		title: "Новости"
+		path: "news"
+		default: "/"
+		routes: {
+			"/": News
+		}
 	}
