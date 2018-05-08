@@ -19,7 +19,6 @@
   "homepage": "https://github.com/K-16/new-site#readme",
   "dependencies": {
     "babel-brunch": "^6.1.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "clean-css-brunch": "^2.10.0",
     "coffeescript2s-brunch": "^3.0.0",

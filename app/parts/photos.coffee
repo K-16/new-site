@@ -19,8 +19,8 @@ module.exports = do ->
 		view: (vnode) ->
 			# display images
 			m "div.photos-viewer", { oncreate: PhotosViewer.bind }, vnode.attrs.photos.map (photo) ->
-				m "a", { href: photo.src_big }, 
-					m "img", { src: photo.src_big }
+				m "a", { href: photo.photo_1280 }, 
+					m "img", { src: photo.photo_1280 }
 
 	##################
 	##### ALBUMS #####
@@ -84,17 +84,16 @@ module.exports = do ->
 	GalleryModel =
 		loadPhotos: (album) ->
 			# get photos from VK
-			@loaded = false
-			@photos = (await m.jsonp
+			@photos = []
+			m.jsonp
 				url: "https://api.vk.com/method/photos.get"
 				data:
 					owner_id: -1088622
 					album_id: album.aid
-					callback: "vkCallback"
-					version: "5.74"
-				callback: "vkCallback"
-			).response
-			@loaded = true
+					v: "5.74"
+
+			.then ({ response }) =>
+				@photos = response.items
 
 	Gallery =
 		view: (vnode) ->
@@ -140,7 +139,7 @@ module.exports = do ->
 							(album) -> album.title == vnode.attrs.name
 				}
 
-				if @loaded
+				if @photos?.length > 0
 					m PhotosViewer, photos: @photos
 			]
 

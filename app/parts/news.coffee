@@ -18,6 +18,6 @@ module.exports = do ->
 				cont
 			]
 
-	{
+	return {
 		"/": News
 	}

@@ -3,19 +3,16 @@ module.exports = do ->
 
 	SliderModel =
 		oninit: ->
-			@loaded = false
-
-			@photos = (await m.jsonp
+			@photos = []
+			m.jsonp
 				url: "https://api.vk.com/method/photos.get"
 				data:
 					owner_id: -1088622
 					album_id: 219881429
-					callback: "vkCallback"
-					version: "5.74"
-				callback: "vkCallback"
-			).response
+					v: "5.74"
 
-			@loaded = true
+			.then ({ response }) =>
+				@photos = response.items
 
 	Slider =
 		oninit: SliderModel.oninit
@@ -24,14 +21,17 @@ module.exports = do ->
 			$(vnode.dom).slick {
 				infinite: true
 				speed: 300
+				autoplay: true
+				autoplaySpeed: 3000
 				slidesToShow: 1
 				adaptiveHeight: true
 			}
 
 		view: ->
-			if @loaded
-				m "ul.slick-ul-list", { oncreate: (vnode) => Slider.bind.call @, vnode }, @photos.map (photo) ->
-					m "img", { src: photo.src_big }
+			if @photos.length > 0
+				m "div.slick-ul-list-container",
+					m "ul.slick-ul-list", { oncreate: (vnode) => Slider.bind.call @, vnode }, @photos.map (photo) ->
+						m "img", { src: photo.photo_1280 }
 			else
 				m "div.preloader",
 					m "img[src=/img/preloader.svg]"
@@ -59,6 +59,6 @@ module.exports = do ->
 				m "q", """Надо потихоньку со школы учить тех, кто будет в состоянии писать готовые движки, выбрав соответствующую профессию. Ведь изготовление сайта на движке практически не дает настоящего представления об этой профессии. Если в школе учить только пользоваться программами, и не учить программировать, то как ребятам узнать, что программирование — это их призвание?"""
 			]
 
-	{
+	return {
 		"/": Main
 	}

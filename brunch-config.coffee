@@ -8,6 +8,5 @@ exports.plugins =
 
 	babel:
 		presets: [ "env" ]
-		plugins: [ "transform-runtime" ]
 
 	on: [ "uglify-js-brunch", "clean-css-brunch" ]
