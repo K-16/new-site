@@ -19,8 +19,8 @@ module.exports = do ->
 		view: (vnode) ->
 			# display images
 			m "div.photos-viewer", { oncreate: PhotosViewer.bind }, vnode.attrs.photos.map (photo) ->
-				m "a", { href: photo.photo_1280 }, 
-					m "img", { src: photo.photo_1280 }
+				m "a", { href: photo.src }, 
+					m "img", { src: photo.src }
 
 	##################
 	##### ALBUMS #####
@@ -93,7 +93,10 @@ module.exports = do ->
 					v: "5.74"
 
 			.then ({ response }) =>
-				@photos = response.items
+				@photos = response.items.map (photo) ->
+					# pick some quality
+					photo.src = photo.photo_807 or photo.photo_604 or photo.photo_130 or photo.photo_75
+					return photo
 
 	Gallery =
 		view: (vnode) ->

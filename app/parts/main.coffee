@@ -12,7 +12,11 @@ module.exports = do ->
 					v: "5.74"
 
 			.then ({ response }) =>
-				@photos = response.items
+				@photos = response.items.map (photo) ->
+					# pick some quality
+					photo.src = photo.photo_807 or photo.photo_604 or photo.photo_130 or photo.photo_75
+					return photo
+
 
 	Slider =
 		oninit: SliderModel.oninit
@@ -31,7 +35,7 @@ module.exports = do ->
 			if @photos.length > 0
 				m "div.slick-ul-list-container",
 					m "ul.slick-ul-list", { oncreate: (vnode) => Slider.bind.call @, vnode }, @photos.map (photo) ->
-						m "img", { src: photo.photo_1280 }
+						m "img", { src: photo.src }
 			else
 				m "div.preloader",
 					m "img[src=/img/preloader.svg]"
