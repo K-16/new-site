@@ -21,8 +21,9 @@ module.exports = do ->
 		oninit: SliderModel.oninit
 
 		bind: (vnode) ->
+			console.log @photos
 			for photo in @photos
-				vnode.dom.innerHTML += "<img src=#{photo.src}>"
+				vnode.dom.innerHTML += "<img onerror='console.log(\"err\")' src='#{photo.src}''>"
 
 			$(vnode.dom).slick {
 				infinite: true

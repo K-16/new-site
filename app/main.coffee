@@ -1,3 +1,20 @@
+random = (min, max) ->
+	min + Math.floor(Math.random() * (max - min))
+
+# easter egg
+actions = [
+	-> console.log "h3110, h@k$$0r"
+	-> console.log "wtf a u duin hia"
+	-> console.log "Hello, World!"
+	-> console.log "You found an easter egg!"
+	->
+		if navigator.userAgent.match "win"
+			console.log "format c:"	
+		else
+			console.log "rm -rf /"
+]
+actions[random(0, actions.length)]()
+
 # some pages and todos
 pages = [
 	require './parts/main'
@@ -32,5 +49,3 @@ window.onscroll = =>
 	else
 		if nav.classList.contains "shadowed"
 			nav.classList.remove "shadowed"
-
-
