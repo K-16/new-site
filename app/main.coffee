@@ -21,7 +21,7 @@ pages = [
 	require './parts/education'
 	require './parts/activity'
 	require './parts/people'
-	# require './parts/contacts'
+	require './parts/contacts'
 	# require './parts/achievments'
 	require './parts/photos'
 ]
