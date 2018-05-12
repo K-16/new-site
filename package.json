@@ -5,7 +5,8 @@
   "scripts": {
     "start": "brunch watch --server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "now": "now ln $(cd public && now --public | tail -n3) k16.now.sh"
+    "now": "now ln $(cd public && now --public | tail -n3) k16.now.sh",
+    "deploy": "npm run now"
   },
   "repository": {
     "type": "git",

@@ -2,7 +2,10 @@ module.exports = do ->
 	PART = "main"
 
 	ImageSlider = 
-		bind: (vnode) ->
+		bind: (vnode, attrs) ->
+			attrs.images.forEach (image) ->
+				vnode.dom.innerHTML += "<li><img class='ls-image' src='#{image.src}'></li>"
+
 			$(vnode.dom).lightSlider {
 				item: 1
 				pauseOnHover: true
@@ -10,12 +13,11 @@ module.exports = do ->
 				loop: true
 				slideMargin: 2
 				pager: false
+				gallery: true
 			}
 
 		view: (vnode) ->
-			m "ul.lsp", { oncreate: (vnode) => ImageSlider.bind.call @, vnode }, vnode.attrs.images.map (image) ->
-				m "li",
-					m "img.ls-image", { src: image.src }
+			m "ul.lsp", { oncreate: (vnode2) => ImageSlider.bind.call @, vnode2, vnode.attrs }
 
 	SliderModel =
 		oninit: ->
