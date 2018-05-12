@@ -30,6 +30,7 @@ nav     = document.getElementsByTagName("nav")[0]
 navList = nav.children[1]
 
 router = {}
+
 for page in pages
 	navList.innerHTML += "<li><a href='/#!/#{page.path}#{page.default}'>#{page.title}</a></li>"
 

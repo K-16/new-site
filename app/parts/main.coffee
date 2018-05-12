@@ -3,19 +3,21 @@ module.exports = do ->
 
 	ImageSlider = 
 		bind: (vnode) ->
-			$(vnode.dom).lightSlider {
-				item: 1
+			$(vnode.dom).slick {
+				lazyLoad: 'progressive'
+				slidesToShow: 2
+				variableWidth: true
+				adaptiveHeight: true
+				infinite: true
+				autoplay: true
+				autoplaySpeed: 2000
 				pauseOnHover: true
-				autoWidth: true
-				loop: true
-				slideMargin: 2
-				pager: false
-			}
+			}	
 
 		view: (vnode) ->
-			m "ul.lsp", { oncreate: (vnode) => ImageSlider.bind.call @, vnode }, vnode.attrs.images.map (image) ->
-				m "li",
-					m "img.ls-image", { src: image.src }
+			m "div.lsp", { oncreate: (vnode) => ImageSlider.bind.call @, vnode }, vnode.attrs.images.map (image) ->
+				m "div",
+					m "img.ls-image", { "data-lazy": image.src }
 
 	SliderModel =
 		oninit: ->
@@ -46,10 +48,7 @@ module.exports = do ->
 
 	Main =
 		oninit: ->
-			if not window.localStorage.notFirstLoad
-				m.route.set "/main/"
-				console.log "first load"
-				window.localStorage.notFirstLoad = true
+			window.scrollTo 0, 0
 
 		view: ->
 			m "div", [

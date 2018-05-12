@@ -99,6 +99,9 @@ module.exports = do ->
 					return photo
 
 	Gallery =
+		oninit: ->
+			window.scrollTo 0, 0			
+			
 		view: (vnode) ->
 			m "div", [
 				m "h1", "Фотографии"

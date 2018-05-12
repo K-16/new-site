@@ -18,6 +18,9 @@ module.exports = do ->
 			]
 
 	History =
+		oninit: ->
+			window.scrollTo 0, 0
+			
 		view: (vnode) ->
 			m "div", [
 				m "h1", "История"
