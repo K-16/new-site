@@ -5,12 +5,8 @@ module.exports = do ->
 		bind: (vnode) ->
 			$(vnode.dom).slick {
 				lazyLoad: 'progressive'
-				slidesToShow: 2
 				variableWidth: true
 				adaptiveHeight: true
-				infinite: true
-				autoplay: true
-				autoplaySpeed: 2000
 				pauseOnHover: true
 			}	
 
@@ -54,7 +50,9 @@ module.exports = do ->
 			m "div", [
 				m "h1", "Главная"
 
-				m "i", "Сайт коллектива детей 7–17 лет, педагогов, выпускников и родителей. Мы занимаемся программированием и WEB–конструированием."
+				m "p.i", "Сайт коллектива детей 7–17 лет, педагогов, выпускников и родителей. Мы занимаемся программированием и WEB–конструированием."
+
+				m "br"
 
 				m Slider
 

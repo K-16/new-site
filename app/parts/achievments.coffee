@@ -33,7 +33,6 @@ module.exports = do ->
 
 			$(vnode.dom.children[0]).slick {
 				lazyLoad: 'progressive'
-				slidesToShow: 2
 				variableWidth: true
 				adaptiveHeight: true
 				infinite: false
