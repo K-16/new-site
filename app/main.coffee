@@ -49,3 +49,16 @@ window.onscroll = =>
 	else
 		if nav.classList.contains "shadowed"
 			nav.classList.remove "shadowed"
+
+burger = document.getElementsByClassName("burger-list")[0]
+ul     = document.getElementsByClassName("list-nav")[0]
+
+burger.onclick = ->
+	ul.classList.toggle "showed"
+	ul.classList.toggle "shadowed"
+	for child in ul.children
+		child.onclick = ->
+			setTimeout ->
+				ul.classList.toggle "showed"
+				ul.classList.toggle "shadowed"
+			, 40

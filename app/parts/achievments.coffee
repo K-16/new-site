@@ -29,7 +29,7 @@ module.exports = do ->
 
 			v.attrs.images.map (image) ->
 				if not v.attrs.filter or v.attrs.filter(image)
-					vnode.dom.children[0].innerHTML += "<div><img data-lazy='#{image.src}'></div>"
+					vnode.dom.children[0].innerHTML += "<img data-lazy='#{image.src}'>"
 
 			$(vnode.dom.children[0]).slick {
 				lazyLoad: 'progressive'
