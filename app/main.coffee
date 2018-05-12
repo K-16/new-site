@@ -18,10 +18,11 @@ pages = [
 	require './parts/main'
 	require './parts/news'
 	require './parts/history'
-	# require './parts/education'
+	require './parts/education'
 	# require './parts/activity'
 	# require './parts/people'
 	# require './parts/contacts'
+	# require './parts/achievments'
 	require './parts/photos'
 ]
 
