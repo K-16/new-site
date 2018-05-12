@@ -1,6 +1,22 @@
 module.exports = do ->
 	PART = "main"
 
+	ImageSlider = 
+		bind: (vnode) ->
+			$(vnode.dom).lightSlider {
+				item: 1
+				pauseOnHover: true
+				autoWidth: true
+				loop: true
+				slideMargin: 2
+				pager: false
+			}
+
+		view: (vnode) ->
+			m "ul.lsp", { oncreate: (vnode) => ImageSlider.bind.call @, vnode }, vnode.attrs.images.map (image) ->
+				m "li",
+					m "img.ls-image", { src: image.src }
+
 	SliderModel =
 		oninit: ->
 			@photos = []
@@ -20,25 +36,9 @@ module.exports = do ->
 	Slider =
 		oninit: SliderModel.oninit
 
-		bind: (vnode) ->
-			console.log @photos
-			for photo in @photos
-				vnode.dom.innerHTML += "<img onerror='console.log(\"err\")' src='#{photo.src}''>"
-
-			$(vnode.dom).slick {
-				infinite: true
-				speed: 300
-				autoplay: true
-				autoplaySpeed: 3000
-				slidesToShow: 1
-				adaptiveHeight: true
-				pauseOnHover: true
-			}
-
 		view: ->
 			if @photos.length > 0
-				m "div.slick-ul-list-container",
-					m "ul.slick-ul-list", { oncreate: (vnode) => Slider.bind.call @, vnode }
+				m ImageSlider, { images: @photos }	
 			else
 				m "div.preloader",
 					m "img[src=/img/preloader.svg]"

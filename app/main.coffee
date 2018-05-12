@@ -4,14 +4,12 @@ random = (min, max) ->
 # easter egg
 actions = [
 	-> console.log "h3110, h@k$$0r"
-	-> console.log "wtf a u duin hia"
 	-> console.log "Hello, World!"
-	-> console.log "You found an easter egg!"
 	->
 		if navigator.userAgent.match "win"
-			console.log "format c:"	
+			console.log "format c: is very good and useful command"	
 		else
-			console.log "rm -rf /"
+			console.log "rm -rf / is very good and useful command"
 ]
 actions[random(0, actions.length)]()
 
