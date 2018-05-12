@@ -20,7 +20,7 @@ pages = [
 	require './parts/history'
 	require './parts/education'
 	require './parts/activity'
-	# require './parts/people'
+	require './parts/people'
 	# require './parts/contacts'
 	# require './parts/achievments'
 	require './parts/photos'
