@@ -15,9 +15,9 @@ module.exports = do ->
 			}	
 
 		view: (vnode) ->
-			m "div.lsp", { oncreate: (vnode) => ImageSlider.bind.call @, vnode }, vnode.attrs.images.map (image) ->
+			m "div", { oncreate: (vnode) => ImageSlider.bind.call @, vnode }, vnode.attrs.images.map (image) ->
 				m "div",
-					m "img.ls-image", { "data-lazy": image.src }
+					m "img", { "data-lazy": image.src }
 
 	SliderModel =
 		oninit: ->

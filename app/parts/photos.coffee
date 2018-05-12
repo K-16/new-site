@@ -4,6 +4,10 @@ module.exports = do ->
 	avaliableYears = []
 	avaliableNames = []
 
+	sort = (arr) ->
+		arr.sort (a, b) ->
+			a < b
+
 	##################
 	##### PHOTOS #####
 	##################
@@ -51,6 +55,9 @@ module.exports = do ->
 				album.title = album.title.replace(/\|\s*\d*\s*/gi, "").trim()
 				unless album.title in avaliableNames
 					avaliableNames.push album.title
+
+			sort avaliableYears
+			sort avaliableNames
 
 			@loaded = true
 

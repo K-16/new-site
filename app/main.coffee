@@ -22,7 +22,7 @@ pages = [
 	require './parts/activity'
 	require './parts/people'
 	require './parts/contacts'
-	# require './parts/achievments'
+	require './parts/achievments'
 	require './parts/photos'
 ]
 
