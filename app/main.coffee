@@ -42,13 +42,23 @@ console.log "Router:", router
 
 m.route root, "/main/", router
 
-window.onscroll = =>
-	if window.scrollY > 0
-		unless nav.classList.contains "shadowed"
-			nav.classList.add "shadowed"
-	else
-		if nav.classList.contains "shadowed"
-			nav.classList.remove "shadowed"
+lastScroll = window.scrollY or document.body.scrollTop or document.documentElement.scrollTop
+setInterval ->
+	# get scroll y
+	sc = (window.scrollY or document.body.scrollTop or document.documentElement.scrollTop)
+
+	if sc != lastScroll
+		# if page isnt on top
+		if (window.scrollY or document.body.scrollTop or document.documentElement.scrollTop) > 0
+			unless nav.classList.contains "shadowed"
+				nav.classList.add "shadowed"
+
+		else
+			if nav.classList.contains "shadowed"
+				nav.classList.remove "shadowed"
+
+		lastScroll = sc
+, 100
 
 burger = document.getElementsByClassName("burger-list")[0]
 ul     = document.getElementsByClassName("list-nav")[0]
