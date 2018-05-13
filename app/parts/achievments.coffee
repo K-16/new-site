@@ -96,10 +96,13 @@ module.exports = do ->
 			m "div", [
 				m "h1", "Достижения"
 
-				m "div.sort-method-container", [
-					m "a.fas.fa-calendar-alt.sort-method[href=/year/all/]", { class: (if vnode.attrs.year? then "checked"), oncreate: m.route.link }
-					m "a.fas.fa-list-alt.sort-method[href=/competition/all/]", { class: (if vnode.attrs.competition? then "checked"), oncreate: m.route.link }
-					m "a.fas.fa-level-up-alt.sort-method[href=/level/all/]", { class: (if vnode.attrs.level? then "checked"), oncreate: m.route.link }
+				m "div.sort-select", [
+					m "div.sort-label", "Сортировать по"
+					m "div.sort-method-container", [
+						m "a.sort-method[href=/year/all/]", { class: (if vnode.attrs.year? then "checked"), oncreate: m.route.link }, "годам"
+						m "a.sort-method[href=/competition/all/]", { class: (if vnode.attrs.competition? then "checked"), oncreate: m.route.link }, "мероприятиям"
+						m "a.sort-method[href=/level/all/]", { class: (if vnode.attrs.level? then "checked"), oncreate: m.route.link }, "уровню"
+					]
 				]
 
 				m "br"

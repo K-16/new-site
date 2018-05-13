@@ -31,7 +31,7 @@ nav     = document.getElementsByTagName("nav")[0]
 navList = nav.children[1]
 
 for name, page of pages
-	navList.innerHTML += "<li><a href='/#{page.path}.html' onclick='openNav(\"#{page.path}\", event)'>#{page.title}</a></li>"
+	navList.innerHTML += "<li><a href='/#{page.path}' onclick='openNav(\"#{page.path}\", event)'>#{page.title}</a></li>"
 
 lastScroll = window.scrollY or document.body.scrollTop or document.documentElement.scrollTop
 setInterval ->
@@ -65,7 +65,7 @@ burger.onclick = ->
 			, 40
 
 window.openNav = (route, event) ->
-	history.pushState {}, "K-16", "/" + route + ".html"
+	history.pushState {}, "K-16", "/" + route
 	page = pages[route]
 	m.route root, page.default, page.routes
 	event.preventDefault()

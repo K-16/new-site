@@ -7,13 +7,12 @@ html
 
 		meta(name = "theme-color", content = "#214560")
 
-		title Достижения | K-16
+		title Люди | K-16
 
 		link(href = "/main.css",                                      rel = "stylesheet", type = "text/css")
 		link(href = "/libs/lg/css/lightgallery.css",                  rel = "stylesheet", type = "text/css")
 		link(href = "/libs/slick/slick.css",                          rel = "stylesheet", type = "text/css")
 		link(href = "/libs/slick/slick-theme.css",                    rel = "stylesheet", type = "text/css")
-		link(href = "/libs/font-awesome/css/fontawesome-all.min.css", rel = "stylesheet", type = "text/css")
 
 	body
 		script var parts = [];
@@ -54,5 +53,6 @@ html
 		script(src = "/libs/mithril.js")
 
 		//- run
+		script(src = "/content.js")
 		script(src = "/app.js")
-		script require("main.coffee")("achievments")
+		script require("main.coffee")("people")

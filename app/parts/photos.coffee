@@ -115,9 +115,12 @@ module.exports = do ->
 				m "h1", "Фотографии"
 
 				# sorting
-				m "div.sort-method-container", [
-					m "a.fas.fa-calendar-alt.sort-method[href=/year/all/]", { class: (if vnode.attrs.year? then "checked"), oncreate: m.route.link }
-					m "a.fas.fa-list-alt.sort-method[href=/name/all/]", { class: (if vnode.attrs.name? then "checked"), oncreate: m.route.link }
+				m "div.sort-select", [
+					m "div.sort-label", "Сортировать по"
+					m "div.sort-method-container", [
+						m "a.sort-method[href=/year/all/]", { class: (if vnode.attrs.year? then "checked"), oncreate: m.route.link }, "годам"
+						m "a.sort-method[href=/name/all/]", { class: (if vnode.attrs.name? then "checked"), oncreate: m.route.link }, "названиям"
+					]
 				]
 
 				m "br"
