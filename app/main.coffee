@@ -67,10 +67,16 @@ burger.onclick = ->
 window.openNav = (route, event) ->
 	history.pushState {}, "K-16", "/" + route
 	page = pages[route]
-	m.route root, page.default, page.routes
+	if page.default == "/"
+		m.mount root, page.routes["/"]
+	else
+		m.route root, page.default, page.routes
+
 	event.preventDefault()
 
 module.exports = (route) ->
-	console.log route
 	page = pages[route]
-	m.route root, page.default, page.routes
+	if page.default == "/"
+		m.mount root, page.routes["/"]
+	else
+		m.route root, page.default, page.routes
