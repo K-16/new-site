@@ -14,33 +14,24 @@ actions = [
 actions[random(0, actions.length)]()
 
 # some pages and todos
-pages = [
-	require './parts/main'
-	require './parts/news'
-	require './parts/history'
-	require './parts/education'
-	require './parts/activity'
-	require './parts/people'
-	require './parts/achievments'
-	require './parts/photos'
-	require './parts/contacts'
-]
+pages = {
+	main:        require './parts/main'
+	news:        require './parts/news'
+	history:     require './parts/history'
+	education:   require './parts/education'
+	activity:    require './parts/activity'
+	people:      require './parts/people'
+	achievments: require './parts/achievments'
+	photos:      require './parts/photos'
+	contacts:    require './parts/contacts'
+}
 
 root    = document.getElementsByTagName("main")[0]
 nav     = document.getElementsByTagName("nav")[0]
 navList = nav.children[1]
 
-router = {}
-
-for page in pages
-	navList.innerHTML += "<li><a href='/#!/#{page.path}#{page.default}'>#{page.title}</a></li>"
-
-	for route, resolver of page.routes
-		router["/" + page.path + route] = resolver
-
-console.log "Router:", router
-
-m.route root, "/main/", router
+for name, page of pages
+	navList.innerHTML += "<li><a href='/#{page.path}.html' onclick='openNav(\"#{page.path}\", event)'>#{page.title}</a></li>"
 
 lastScroll = window.scrollY or document.body.scrollTop or document.documentElement.scrollTop
 setInterval ->
@@ -72,3 +63,14 @@ burger.onclick = ->
 				ul.classList.toggle "showed"
 				ul.classList.toggle "shadowed"
 			, 40
+
+window.openNav = (route, event) ->
+	history.pushState {}, "K-16", "/" + route + ".html"
+	page = pages[route]
+	m.route root, page.default, page.routes
+	event.preventDefault()
+
+module.exports = (route) ->
+	console.log route
+	page = pages[route]
+	m.route root, page.default, page.routes

@@ -116,8 +116,8 @@ module.exports = do ->
 
 				# sorting
 				m "div.sort-method-container", [
-					m "a.fas.fa-calendar-alt.sort-method[href=/" + PART + "/year/all/]", { class: (if vnode.attrs.year? then "checked"), oncreate: m.route.link }
-					m "a.fas.fa-list-alt.sort-method[href=/" + PART + "/name/all/]", { class: (if vnode.attrs.name? then "checked"), oncreate: m.route.link }
+					m "a.fas.fa-calendar-alt.sort-method[href=/year/all/]", { class: (if vnode.attrs.year? then "checked"), oncreate: m.route.link }
+					m "a.fas.fa-list-alt.sort-method[href=/name/all/]", { class: (if vnode.attrs.name? then "checked"), oncreate: m.route.link }
 				]
 
 				m "br"
@@ -126,15 +126,15 @@ module.exports = do ->
 				m "div.sort-link-container",
 					if vnode.attrs.year?
 						[
-							m "a.sort-link", { class: (if vnode.attrs.year == "all" then "checked"), href: "/" + PART + "/year/all/", oncreate: m.route.link }, "Все"
+							m "a.sort-link", { class: (if vnode.attrs.year == "all" then "checked"), href: "/year/all/", oncreate: m.route.link }, "Все"
 							avaliableYears.map (year) ->
-								m "a.sort-link", { class: (if parseInt(vnode.attrs.year) == year then "checked"), href: "/" + PART + "/year/" + year + "/", oncreate: m.route.link }, year
+								m "a.sort-link", { class: (if parseInt(vnode.attrs.year) == year then "checked"), href: "/year/" + year + "/", oncreate: m.route.link }, year
 						]
 					else if vnode.attrs.name?
 						[
-							m "a.sort-link", { class: (if vnode.attrs.name == "all" then "checked"), href: "/" + PART + "/name/all/", oncreate: m.route.link }, "Все"
+							m "a.sort-link", { class: (if vnode.attrs.name == "all" then "checked"), href: "/name/all/", oncreate: m.route.link }, "Все"
 							avaliableNames.map (name) ->
-								m "a.sort-link", { class: (if vnode.attrs.name == name then "checked"), href: "/" + PART + "/name/" + name + "/", oncreate: m.route.link }, name
+								m "a.sort-link", { class: (if vnode.attrs.name == name then "checked"), href: "/name/" + name + "/", oncreate: m.route.link }, name
 						]
 
 				m Albums, {

@@ -7,7 +7,7 @@ html
 
 		meta(name = "theme-color", content = "#214560")
 
-		title Главная | K-16
+		title Новости | K-16
 
 		link(href = "/main.css",                                      rel = "stylesheet", type = "text/css")
 		link(href = "/libs/lg/css/lightgallery.css",                  rel = "stylesheet", type = "text/css")
@@ -19,7 +19,7 @@ html
 		script var parts = [];
 
 		nav
-			a(href = "/#!/main/")
+			a(href = "/")
 				img.logo(src = "/img/logo.svg")
 
 			ul.list-nav
@@ -55,4 +55,4 @@ html
 
 		//- run
 		script(src = "/app.js")
-		script require("main.coffee")("main")
+		script require("main.coffee")("news")

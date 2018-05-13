@@ -97,9 +97,9 @@ module.exports = do ->
 				m "h1", "Достижения"
 
 				m "div.sort-method-container", [
-					m "a.fas.fa-calendar-alt.sort-method[href=/" + PART + "/year/all/]", { class: (if vnode.attrs.year? then "checked"), oncreate: m.route.link }
-					m "a.fas.fa-list-alt.sort-method[href=/" + PART + "/competition/all/]", { class: (if vnode.attrs.competition? then "checked"), oncreate: m.route.link }
-					m "a.fas.fa-level-up-alt.sort-method[href=/" + PART + "/level/all/]", { class: (if vnode.attrs.level? then "checked"), oncreate: m.route.link }
+					m "a.fas.fa-calendar-alt.sort-method[href=/year/all/]", { class: (if vnode.attrs.year? then "checked"), oncreate: m.route.link }
+					m "a.fas.fa-list-alt.sort-method[href=/competition/all/]", { class: (if vnode.attrs.competition? then "checked"), oncreate: m.route.link }
+					m "a.fas.fa-level-up-alt.sort-method[href=/level/all/]", { class: (if vnode.attrs.level? then "checked"), oncreate: m.route.link }
 				]
 
 				m "br"
@@ -109,13 +109,13 @@ module.exports = do ->
 						[
 							m "a.sort-link", { 
 								class: (if vnode.attrs.year == "all" then "checked")
-								href: "/" + PART + "/year/all/"
+								href: "/year/all/"
 								oncreate: m.route.link
 							}, "Все"
 							avaliableYears.map (year) ->
 								m "a.sort-link", { 
 									class: (if parseInt(vnode.attrs.year) == year then "checked")
-									href: "/" + PART + "/year/" + year + "/"
+									href: "/year/" + year + "/"
 									oncreate: m.route.link
 								}, year
 						]
@@ -123,13 +123,13 @@ module.exports = do ->
 						[
 							m "a.sort-link", { 
 								class: (if vnode.attrs.competition == "all" then "checked")
-								href: "/" + PART + "/competition/all/"
+								href: "/competition/all/"
 								oncreate: m.route.link 
 							}, "Все"
 							avaliableCompetitions.map (competition) ->
 								m "a.sort-link", { 
 									class: (if vnode.attrs.competition == competition then "checked")
-									href: "/" + PART + "/competition/" + competition + "/"
+									href: "/competition/" + competition + "/"
 									oncreate: m.route.link
 								}, competition
 						]
@@ -137,13 +137,13 @@ module.exports = do ->
 						[
 							m "a.sort-link", { 
 								class: (if vnode.attrs.level == "all" then "checked")
-								href: "/" + PART + "/level/all/"
+								href: "/level/all/"
 								oncreate: m.route.link 
 							}, "Все"
 							avaliableLevels.map (level) ->
 								m "a.sort-link", { 
 									class: (if vnode.attrs.level == level then "checked")
-									href: "/" + PART + "/level/" + level + "/"
+									href: "/level/" + level + "/"
 									oncreate: m.route.link
 								}, level
 						]
