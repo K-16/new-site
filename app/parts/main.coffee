@@ -8,6 +8,7 @@ module.exports = do ->
 				variableWidth: true
 				adaptiveHeight: true
 				pauseOnHover: true
+				centerMode: true
 			}	
 
 		view: (vnode) ->
