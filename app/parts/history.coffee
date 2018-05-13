@@ -20,6 +20,7 @@ module.exports = do ->
 	History =
 		oninit: ->
 			window.scrollTo 0, 0
+			document.title = "История | K-16"
 			
 		view: (vnode) ->
 			m "div", [

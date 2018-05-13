@@ -4,6 +4,7 @@ module.exports = do ->
 	Education = 
 		oninit: ->
 			window.scrollTo 0, 0
+			document.title = "Учёба | K-16"
 				
 		view: ->
 			m "div", [

@@ -4,6 +4,7 @@ module.exports = do ->
 	Contacts = 
 		oninit: ->
 			window.scrollTo 0, 0
+			document.title = "Контакты | K-16"
 
 		view: ->
 			cont = m "div", [

@@ -88,6 +88,7 @@ module.exports = do ->
 	Gallery =
 		oninit: (vnode) ->
 			window.scrollTo 0, 0			
+			document.title = "Достижения | K-16"
 			GalleryModel.oninit.call @, vnode
 			
 		view: (vnode) ->

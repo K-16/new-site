@@ -4,6 +4,7 @@ module.exports = do ->
 	Activity = 
 		oninit: ->
 			window.scrollTo 0, 0
+			document.title = "Мероприятия | K-16"
 
 		view: ->
 			m "div", [
