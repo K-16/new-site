@@ -12,6 +12,7 @@ module.exports = do ->
 	People =
 		oninit: ->
 			window.scrollTo 0, 0
+			document.title = "Люди | K-16"
 
 		view: ->
 			m "div", [

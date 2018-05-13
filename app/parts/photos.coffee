@@ -107,7 +107,8 @@ module.exports = do ->
 
 	Gallery =
 		oninit: ->
-			window.scrollTo 0, 0			
+			window.scrollTo 0, 0	
+			document.title = "Фотографии | K-16"
 			
 		view: (vnode) ->
 			m "div", [
@@ -159,7 +160,6 @@ module.exports = do ->
 	return {
 		title: "Фотографии"
 		path: "photos"
-		class: "photos"
 		default: "/year/all/"
 		routes: {
 			"/year/:year/": Gallery

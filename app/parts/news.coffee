@@ -6,6 +6,7 @@ module.exports = do ->
 	News =
 		oninit: ->
 			window.scrollTo 0, 0
+			document.title = "Новости | K-16"
 			
 			@id = "group-id-" + idCount
 			idCount++
