@@ -36,6 +36,7 @@ module.exports = do ->
 				variableWidth: true
 				adaptiveHeight: true
 				infinite: false
+				centerMode: true
 			}
 
 			@slicked = true
