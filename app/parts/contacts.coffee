@@ -38,6 +38,7 @@ module.exports = do ->
 	return {
 		title: "Контакты"
 		path: "contacts"
+		class: "contacts"
 		default: "/"
 		routes: {
 			"/": Contacts

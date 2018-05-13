@@ -21,9 +21,9 @@ pages = [
 	require './parts/education'
 	require './parts/activity'
 	require './parts/people'
-	require './parts/contacts'
 	require './parts/achievments'
 	require './parts/photos'
+	require './parts/contacts'
 ]
 
 root    = document.getElementsByTagName("main")[0]
@@ -33,7 +33,7 @@ navList = nav.children[1]
 router = {}
 
 for page in pages
-	navList.innerHTML += "<li><a href='/#!/#{page.path}#{page.default}'>#{page.title}</a></li>"
+	navList.innerHTML += "<li class='#{page.class or ""}'><a href='/#!/#{page.path}#{page.default}'>#{page.title}</a></li>"
 
 	for route, resolver of page.routes
 		router["/" + page.path + route] = resolver
