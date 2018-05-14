@@ -24,6 +24,7 @@
     "babel-preset-env": "^1.6.1",
     "clean-css-brunch": "^2.10.0",
     "coffeescript2s-brunch": "^3.0.0",
+    "imagemin-brunch": "^1.1.0",
     "jade-brunch": "^2.8.0",
     "stylus-brunch": "^2.10.0",
     "uglify-js-brunch": "^2.10.0"

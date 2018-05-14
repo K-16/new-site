@@ -9,4 +9,4 @@ exports.plugins =
 	babel:
 		presets: [ "env" ]
 
-	on: [ "uglify-js-brunch", "clean-css-brunch" ]
+	on: [ "uglify-js-brunch", "clean-css-brunch", "imagemin-brunch" ]

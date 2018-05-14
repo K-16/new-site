@@ -87,8 +87,11 @@ module.exports = do ->
 				sort avaliableLevels
 
 	Gallery =
+		onremove: ->
+			window.scrollTo 0, 0	
+			document.body.scrollTo 0, 0
+
 		oninit: (vnode) ->
-			window.scrollTo 0, 0			
 			document.title = "Достижения | K-16"
 			GalleryModel.oninit.call @, vnode
 			

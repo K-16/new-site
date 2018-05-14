@@ -2,8 +2,11 @@ module.exports = do ->
 	PART = "activity"
 
 	Activity = 
-		oninit: ->
+		onremove: ->
 			window.scrollTo 0, 0
+			document.body.scrollTo 0, 0
+
+		oninit: ->
 			document.title = "Мероприятия | K-16"
 
 		view: ->

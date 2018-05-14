@@ -2,8 +2,11 @@ module.exports = do ->
 	PART = "history"
 
 	History =
-		oninit: ->
+		onremove: ->
 			window.scrollTo 0, 0
+			document.body.scrollTo 0, 0
+
+		oninit: ->
 			document.title = "История | K-16"
 			
 		view: (vnode) ->

@@ -44,8 +44,11 @@ module.exports = do ->
 
 
 	Main =
-		oninit: ->
+		onremove: ->
 			window.scrollTo 0, 0
+			document.body.scrollTo 0, 0
+
+		oninit: ->
 			document.title = "Главная | K-16"
 
 		view: ->

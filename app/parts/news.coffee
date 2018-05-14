@@ -4,8 +4,11 @@ module.exports = do ->
 	idCount = 0
 
 	News =
-		oninit: ->
+		onremove: ->
 			window.scrollTo 0, 0
+			document.body.scrollTo 0, 0
+
+		oninit: ->
 			document.title = "Новости | K-16"
 			
 			@id = "group-id-" + idCount

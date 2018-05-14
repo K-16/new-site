@@ -106,8 +106,11 @@ module.exports = do ->
 					return photo
 
 	Gallery =
+		onremove: ->
+			window.scrollTo 0, 0
+			document.body.scrollTo 0, 0
+
 		oninit: ->
-			window.scrollTo 0, 0	
 			document.title = "Фотографии | K-16"
 			
 		view: (vnode) ->

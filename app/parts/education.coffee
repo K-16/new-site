@@ -2,8 +2,11 @@ module.exports = do ->
 	PART = "education"
 
 	Education = 
-		oninit: ->
+		onremove: ->
 			window.scrollTo 0, 0
+			document.body.scrollTo 0, 0
+
+		oninit: ->
 			document.title = "Учёба | K-16"
 				
 		view: ->
