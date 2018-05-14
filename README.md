@@ -1,5 +1,7 @@
 # Сайт K-16
 
+[![Travis](https://img.shields.io/travis/K-16/new-site.svg?style=flat-square)](https://github.com/K-16/new-site)
+
 Новая версия сайта K-16. Автор - [Малютин Егор](https://github.com/malyutinegor). Также огромное спасибо [Сене Пугачу](https://github.com/upisfree).
 
 ## Как скомпилировать?
