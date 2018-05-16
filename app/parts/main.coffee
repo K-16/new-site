@@ -54,6 +54,15 @@ module.exports = do ->
 
 		view: ->
 			m "div", [
+				m "h1", "Главная"
+
+				if appContent.announcement
+					m "div.announcement", [
+						m "div.danger"
+						m "div.announcement-content",
+							m.trust appContent.announcement
+					]
+
 				m.trust appContent.beforeSlider	
 
 				m Slider

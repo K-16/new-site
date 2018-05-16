@@ -10,7 +10,9 @@ module.exports = do ->
 			document.title = "Мероприятия | K-16"
 
 		view: ->
-			m.trust appContent.activity
+			m "div", [
+				m.trust appContent.activity
+			]
 
 	return {
 		title: "Мероприятия"
