@@ -15,15 +15,15 @@ actions[random(0, actions.length)]()
 
 # some pages and todos
 pages = {
-	main:        require './parts/main'
-	news:        require './parts/news'
-	history:     require './parts/history'
-	education:   require './parts/education'
-	activity:    require './parts/activity'
-	people:      require './parts/people'
-	achievments: require './parts/achievments'
-	photos:      require './parts/photos'
-	contacts:    require './parts/contacts'
+	"/":            require './parts/main'
+	"/news":        require './parts/news'
+	"/history":     require './parts/history'
+	"/education":   require './parts/education'
+	"/activity":    require './parts/activity'
+	"/people":      require './parts/people'
+	"/achievments": require './parts/achievments'
+	"/photos":      require './parts/photos'
+	"/contacts":    require './parts/contacts'
 }
 
 root    = document.getElementsByTagName("main")[0]
@@ -65,18 +65,25 @@ burger.onclick = ->
 			, 40
 
 window.openNav = (route, event) ->
-	history.pushState {}, "K-16", "/" + route
+	history.pushState { route }, "K-16", route
 	page = pages[route]
-	if page.default == "/"
-		m.mount root, page.routes["/"]
+	if page.default in ["/", ""]
+		m.mount root, page.routes["/"] or page.routes[""]
 	else
 		m.route root, page.default, page.routes
 
 	event.preventDefault()
 
+# window.onpopstate = ({ state: { route } }) ->
+# 	page = pages[route]
+# 	if page.default in ["/", ""]
+# 		m.mount root, page.routes["/"] or page.routes[""]
+# 	else
+# 		m.route root, page.default, page.routes
+
 module.exports = (route) ->
 	page = pages[route]
-	if page.default == "/"
-		m.mount root, page.routes["/"]
+	if page.default in ["/", ""]
+		m.mount root, page.routes["/"] or page.routes[""]
 	else
 		m.route root, page.default, page.routes

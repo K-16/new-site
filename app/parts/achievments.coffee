@@ -173,7 +173,7 @@ module.exports = do ->
 
 	return {
 		title: "Достижения"
-		path: "achievments"
+		path: "/achievments"
 		default: "/year/all/"
 		routes: {
 			"/year/:year/":               Gallery

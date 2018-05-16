@@ -21,7 +21,7 @@ module.exports = do ->
 
 	return {
 		title: "Контакты"
-		path: "contacts"
+		path: "/contacts"
 		default: "/"
 		routes: {
 			"/": Contacts

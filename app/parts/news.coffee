@@ -26,7 +26,7 @@ module.exports = do ->
 
 	return {
 		title: "Новости"
-		path: "news"
+		path: "/news"
 		default: "/"
 		routes: {
 			"/": News

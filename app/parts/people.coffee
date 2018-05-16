@@ -14,7 +14,7 @@ module.exports = do ->
 
 	return {
 		title: "Люди"
-		path: "people"
+		path: "/people"
 		default: "/"
 		routes: {
 			"/": People

@@ -14,7 +14,7 @@ module.exports = do ->
 
 	return {
 		title: "Учёба"
-		path: "education"
+		path: "/education"
 		default: "/"
 		routes: {
 			"/": Education

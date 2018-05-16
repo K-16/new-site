@@ -26,7 +26,8 @@ module.exports = do ->
 					album_id: 219881429
 					v: "5.74"
 
-			.then ({ response }) =>
+			.then (response) =>
+				console.log response
 				@photos = response.items.map (photo) ->
 					# pick some quality
 					photo.src = photo.photo_807 or photo.photo_604 or photo.photo_130 or photo.photo_75
@@ -62,8 +63,8 @@ module.exports = do ->
 
 	return {
 		title: "Главная"
-		path: "main"
-		default: "/"
+		path: "/"
+		default: ""
 		routes: {
 			"/": Main
 		}

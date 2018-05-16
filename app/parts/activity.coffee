@@ -14,7 +14,7 @@ module.exports = do ->
 
 	return {
 		title: "Мероприятия"
-		path: "activity"
+		path: "/activity"
 		default: "/"
 		routes: {
 			"/": Activity

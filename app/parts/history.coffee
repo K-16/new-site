@@ -14,7 +14,7 @@ module.exports = do ->
 
 	return {
 		title: "История"
-		path: "history"
+		path: "/history"
 		default: "/"
 		routes: {
 			"/": History

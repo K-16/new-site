@@ -165,7 +165,7 @@ module.exports = do ->
 
 	return {
 		title: "Фотографии"
-		path: "photos"
+		path: "/photos"
 		default: "/year/all/"
 		routes: {
 			"/year/:year/": Gallery
