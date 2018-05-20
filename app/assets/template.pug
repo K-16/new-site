@@ -5,7 +5,7 @@ html
 		meta(charset = "utf-8")
 		meta(name = "viewport", content = "width=desice-width, initial-scale=1.0")
 
-		meta(property = "og:title", content = "Контакты | К-16")
+		meta(property = "og:title", content = name + " | К-16")
 		meta(property = "og:type", content = "website")
 		meta(property = "og:site_name", content= "К-16")
 		meta(property = "og:image", content = "https://k16.now.sh/img/ogp.png")
@@ -13,7 +13,7 @@ html
 
 		meta(name = "theme-color", content = "#214560")
 
-		title Контакты | K-16
+		title #{name} | K-16
 
 		link(href = "/main.css",                                      rel = "stylesheet", type = "text/css")
 		link(href = "/libs/lg/css/lightgallery.css",                  rel = "stylesheet", type = "text/css")
@@ -23,6 +23,7 @@ html
 	body
 		script var parts = [];
 
+		
 		nav
 			a(href = "/#!/main/")
 				img.logo(src = "/img/logo.svg")
@@ -55,10 +56,13 @@ html
 		script(src = "/libs/lg/js/lightgallery.js")
 		script(src = "/libs/lg/thumbnail.js")
 
+		//- snowfall
+		script(src = "/libs/snow.js")
+
 		//- mithril.js
 		script(src = "/libs/mithril.js")
 
 		//- run
 		script(src = "/content.js")
 		script(src = "/app.js")
-		script require("main.coffee")("/contacts")
+		script require("main.coffee")("#{route}")

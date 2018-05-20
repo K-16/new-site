@@ -33,22 +33,25 @@ navList = nav.children[1]
 for name, page of pages
 	navList.innerHTML += "<li><a href='/#{page.path}' onclick='openNav(\"#{page.path}\", event)'>#{page.title}</a></li>"
 
+window.scrollEvents = new Set
+
 lastScroll = window.scrollY or document.body.scrollTop or document.documentElement.scrollTop
 setInterval ->
 	# get scroll y
-	sc = (window.scrollY or document.body.scrollTop or document.documentElement.scrollTop)
+	sc = window.scrollY or document.body.scrollTop or document.documentElement.scrollTop
 
 	if sc != lastScroll
 		# if page isnt on top
-		if (window.scrollY or document.body.scrollTop or document.documentElement.scrollTop) > 0
-			unless nav.classList.contains "shadowed"
-				nav.classList.add "shadowed"
-
+		if (window.scrollY or document.body.scrollTop or document.documentElement.scrollTop) > 5
+			nav.classList.add "shadowed"
 		else
-			if nav.classList.contains "shadowed"
-				nav.classList.remove "shadowed"
+			nav.classList.remove "shadowed"
+
+		window.scrollEvents.forEach (f) ->
+			f()
 
 		lastScroll = sc
+
 , 100
 
 burger = document.getElementsByClassName("burger-list")[0]

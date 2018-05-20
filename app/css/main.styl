@@ -304,6 +304,10 @@ div.hr
 	nav ul > li:not(:last-child):after
 		display none
 
+	body.dark nav ul.list-nav
+		background black
+		box-shadow 0 0.16em 0.15em rgba(255, 255, 255, 0.2)
+
 	nav .logo
 		width 7em
 		height 2.317em	
@@ -350,3 +354,28 @@ div.hr
 		margin 0
 		padding 0
 
+// DARK
+
+// transitions
+body
+	transition background 0.5s ease-in-out
+	nav
+		transition background 0.5s ease-in-out, box-shadow 0.5s ease-in-out
+
+body.dark
+	background black
+	color white
+
+	nav
+		background black
+
+	nav.shadowed
+		box-shadow 0 0 0.15em rgba(255, 255, 255, 0.5)
+
+	.burger-list
+		color white
+
+	a
+		color #82b1d4ff
+		&:hover
+			color #82b1d4aa
